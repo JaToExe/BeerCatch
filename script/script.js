@@ -1,9 +1,24 @@
-game();
+const start = document.querySelector('.start');
+
+start.addEventListener('click', () => {
+    game();
+})
 
 function game() {
 
     let heart = 3;
     let score = 0;
+
+    function schowWindow() {
+        const start = document.querySelector('.start');
+        const nav = document.querySelector('nav');
+        const gameScreen = document.querySelector('.gameScreen');
+
+        start.style.display = 'none';
+        nav.style.display = 'flex';
+        gameScreen.style.display = 'flex';
+
+    }
 
     function movement() {
         const hand = document.querySelector('.hand');
@@ -73,7 +88,7 @@ function game() {
     function lifes() {
         const heartBox = document.querySelector('.heart');
         
-        if (heart > 0) {
+        if (heart > 1) {
             heart--;
             heartBox.textContent = heart;
         } else {
@@ -102,6 +117,7 @@ function game() {
         scoreBox.textContent = score; 
     }
     
+    schowWindow();
     movement();
     spawn();
 }
